@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Patient Portal Website</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <header>
+            <a href="#" class="logo">Logo</a>
+            <ul class="navigation">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#sec" id="btn1">About Us</a></li>
+                <li><a href="login.html" id="btn2">Log in</a></li>
+            </ul>
+        </header>
+        <section>
+            <img src="stars.png" id="stars">
+            <img src="moon.png" id="moon">
+            <img src="mountains_behind.png" id="mountains_behind">
+            <h2 id="text">Patient Portal</h2>
+            <img src="mountains_front.png" id="mountains_front">
+        </section>
+        <div class="sec" id="sec">
+            <h2>About Us</h2>
+            <p>This is where a paragraph should go.<br><br>Another paragraph begins.</p>
+        </div>
+
+        <script>
+            let stars = document.getElementById('stars');
+            let moon = document.getElementById('moon');
+            let mountains_behind = document.getElementById('mountains_behind');
+            let text = document.getElementById('text');
+            let mountains_front = document.getElementById('mountains_front');
+            let header = document.querySelector('header');
+
+            window.addEventListener('scroll', function(){
+                let value = window.scrollY;
+                stars.style.left = value * 0.25 + 'px';
+                moon.style.top = value * 1.05 + 'px';
+                mountains_behind.style.top = value * 0.05 + 'px';
+                mountains_front.style.top = value * 0 + 'px';
+                header.style.top = value * 0.5 + 'px';
+            })
+        </script>
+    </body>
+</html>
