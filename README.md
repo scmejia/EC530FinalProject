@@ -1,7 +1,7 @@
 # Patient Monitoring Solutions
-###### Benjamin Marin, Suzelle Mejia, Patricia Luis
-
 ![My Image](logo.png)
+
+###### Benjamin Marin, Suzelle Mejia, Patricia Luis
 
 ## Table of Contents
 * [Summary](#summary)
