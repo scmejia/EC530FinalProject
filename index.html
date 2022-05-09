@@ -6,7 +6,7 @@
     </head>
     <body>
         <header>
-            <a href="#" class="logo">Logo</a>
+            <a href="#" class="logo">PMS</a>
             <ul class="navigation">
                 <li><a href="#" class="active">Home</a></li>
                 <li><a href="#sec" id="btn1">About Us</a></li>
@@ -16,20 +16,20 @@
         <section>
             <img src="stars.png" id="stars">
             <img src="moon.png" id="moon">
-            <img src="mountains_behind.png" id="mountains_behind">
-            <h2 id="text">Patient Portal</h2>
+            <!-- <img src="mountains_behind.png" id="mountains_behind"> -->
+            <!-- <h2 id="text">Patient Portal</h2> -->
             <img src="mountains_front.png" id="mountains_front">
         </section>
         <div class="sec" id="sec">
             <h2>About Us</h2>
-            <p>This is where a paragraph should go.<br><br>Another paragraph begins.</p>
+            <p>Welcome to Patient Monitoring Solutions. We provide reliable, secure, and simple communication resources for our customers.<br><br>With features such as secure firebase login, patient chat portal, and an information database, our customers can rest assured that their medical needs are being provided for.</p>
         </div>
 
         <script>
             let stars = document.getElementById('stars');
             let moon = document.getElementById('moon');
-            let mountains_behind = document.getElementById('mountains_behind');
-            let text = document.getElementById('text');
+            //let mountains_behind = document.getElementById('mountains_behind');
+            //let text = document.getElementById('text');
             let mountains_front = document.getElementById('mountains_front');
             let header = document.querySelector('header');
 
@@ -37,7 +37,7 @@
                 let value = window.scrollY;
                 stars.style.left = value * 0.25 + 'px';
                 moon.style.top = value * 1.05 + 'px';
-                mountains_behind.style.top = value * 0.05 + 'px';
+                //mountains_behind.style.top = value * 0.05 + 'px';
                 mountains_front.style.top = value * 0 + 'px';
                 header.style.top = value * 0.5 + 'px';
             })
