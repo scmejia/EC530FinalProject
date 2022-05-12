@@ -1,98 +1,26 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
-        <title>Login</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="    viewport" content="width=device-width, initial-scale=1.0">
+
+        <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-database.js"></script>
+        <script src="form.js"></script>
+        <title>Login Page</title>
         <link rel="stylesheet" type="text/css" href="loginstyle.css">
     </head>
     <body>
         <div class="main">
             <div class="form">
-                <div class="button">
-                    <div id="btn"></div>
-                    <button type="button" class="toggle" onclick="login()">Log In</button>
-                    <button type="button" class="toggle" onclick="register()">Register</button>
-                </div>
-                <form id="login" class="userInput">
-                    <p class="formTitle">Login to your account!</p>
-                    <input id="userID" type="text" class="fieldInput" placeholder="User ID" required>
-                    <input id="password" type="password" class="fieldInput" placeholder="Enter Password" required>
-                    <button id="btnLogin" type="submit" class="submit">Log In</button>
-                </form>
-                <form id="register" class="userInput">
-                    <p class="formTitle">Create an account!</p>
-                    <input id="firstname" type="text" class="fieldInput" placeholder="First Name" required>
-                    <input id="lastname" type="text" class="fieldInput" placeholder="Last Name" required>
-                    <input id="email" type="text" class="fieldInput" placeholder="Email" required>
-                    <input id="password" type="password" class="fieldInput" placeholder="Enter Password" required>
-                    <button id="btnRegister" type="submit" class="submit" onclick="console.log('Submit was pressed')">Register</button>
-                </form>
+                    <p class="formTitle">Log in to your account or register if you do not have one!</p>
+                    <input id="email" type="email" class="fieldInput" placeholder="Email">
+                    <input id="password" type="password" class="fieldInput" placeholder="Enter Password">
+                    <button onclick="signUp()" id="signUp" type="submit" class="submit">Register</button>
+                    <button onclick="signIn()" id="signIn" type="submit" class="submit">Log In</button>
             </div>
         </div>
-
-        <script>
-            var x = document.getElementById("login");
-            var y = document.getElementById("register");
-            var z = document.getElementById("btn");
-
-            function register()
-            {
-                console.log("HELLO");
-                x.style.left = "-400px";
-                y.style.left = "50px";
-                z.style.left = "110px";
-            }
-            function login()
-            {
-                x.style.left = "50px";
-                y.style.left = "450px";
-                z.style.left = "0px";
-            }
-        </script>
-
-        <script type="module">
-            import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.0/firebase-app.js";
-            import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.8.0/firebase-analytics.js";
-            import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.8.0/firebase-auth.js";
-            import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/9.8.0/firebase-database.js";
-
-            // TODO: Add SDKs for Firebase products that you want to use
-            // https://firebase.google.com/docs/web/setup#available-libraries
-
-            // Your web app's Firebase configuration
-            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-            const firebaseConfig = {
-                apiKey: "AIzaSyDWu2knoK8fLrX5qkQCFJ5RFG2HHBSZQ1M",
-                authDomain: "medicalwebsite-6ac7a.firebaseapp.com",
-                databaseURL: "https://medicalwebsite-6ac7a-default-rtdb.firebaseio.com",
-                projectId: "medicalwebsite-6ac7a",
-                storageBucket: "medicalwebsite-6ac7a.appspot.com",
-                messagingSenderId: "176774821343",
-                appId: "1:176774821343:web:a399799957e4aecb22006a",
-                measurementId: "G-869NG7NC3W"
-            };
-
-            // Initialize Firebase
-            const app = initializeApp(firebaseConfig);
-            const analytics = getAnalytics(app);
-            const auth = getAuth(app);
-            const database = getDatabase(app);
-
-
-            document.getElementById('register').addEventListener('submit', function(e){
-                e.preventDefault();
-                
-                var ID = Math.random().toString(36).slice(2, 7);
-
-                set(ref(database, 'users/' + ID), {
-                    firstname: document.getElementById('firstname').value,
-                    lastname: document.getElementById('lastname').value,
-                    email: document.getElementById('email').value,
-                    password: document.getElementById('password').value,
-                    uID: ID
-                })
-                document.getElementById('register').reset();
-            });
-
-        </script>
     </body>
 </html>
